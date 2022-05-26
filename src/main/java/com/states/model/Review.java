@@ -21,6 +21,8 @@ public class Review implements Serializable {
     @Transient
     private String userName;
     @Transient
+    private String stateReviewed;
+    @Transient
     private Integer userId;
 
     @NotNull
@@ -41,6 +43,7 @@ public class Review implements Serializable {
         this.id = id;
         this.title = title;
         this.textBody = textBody;
+        this.stateReviewed = stateReviewed;
         this.userId = userId;
     }
 
@@ -58,6 +61,14 @@ public class Review implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getStateReviewed() {
+        return stateReviewed;
+    }
+
+    public void setStateReviewed(String stateReviewed) {
+        this.stateReviewed = stateReviewed;
     }
 
     public String getTextBody() {
@@ -105,12 +116,12 @@ public class Review implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Review)) return false;
         Review review = (Review) o;
-        return Objects.equals(id, review.id) && Objects.equals(title, review.title) && Objects.equals(textBody, review.textBody) && Objects.equals(userName, review.userName) && Objects.equals(userId, review.userId) && Objects.equals(postedAt, review.postedAt) && Objects.equals(updatedAt, review.updatedAt);
+        return Objects.equals(id, review.id) && Objects.equals(title, review.title) && Objects.equals(textBody, review.textBody) && Objects.equals(userName, review.userName) && Objects.equals(stateReviewed, review.stateReviewed) && Objects.equals(userId, review.userId) && Objects.equals(postedAt, review.postedAt) && Objects.equals(updatedAt, review.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, textBody, userName, userId, postedAt, updatedAt);
+        return Objects.hash(id, title, textBody, userName, stateReviewed, userId, postedAt, updatedAt);
     }
 
     @Override
@@ -120,6 +131,7 @@ public class Review implements Serializable {
                 ", title='" + title + '\'' +
                 ", textBody='" + textBody + '\'' +
                 ", userName='" + userName + '\'' +
+                ", stateReviewed='" + stateReviewed + '\'' +
                 ", userId=" + userId +
                 ", postedAt=" + postedAt +
                 ", updatedAt=" + updatedAt +
